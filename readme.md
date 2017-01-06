@@ -1,7 +1,7 @@
 underscore-template-strict-loader
 =========================
 
-An Underscore.js template loader for Webpack that works with strict mode. Underscore templates don't work with strict mode by default because they use the `with(data)` function to give you access to your data variables. This plugin works by prefixing each variable in your templates with `data.whatever` so `{{ name }}` becomes `{{ data.name }}` .
+An Underscore.js template loader for Webpack that works with strict mode. Underscore templates don't work with strict mode by default because they use the `with(data)` function to give you access to your data variables. This plugin works by prefixing each variable in your templates with `data.whatever` so `{{ name }}` becomes `{{ data.name }}`.
 
 ### Installation
 Once you have the Underscore package installed, you can run:
@@ -33,3 +33,5 @@ module.exports = {
         }
 };
 ```
+### Other
+This is being used in Beta at [SpyFu](https://www.spyfu.com)
