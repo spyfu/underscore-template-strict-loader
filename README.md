@@ -5,8 +5,9 @@ An Underscore.js template loader for Webpack that works with strict mode. Unders
 
 ### Installation
 Once you have the Underscore package installed, you can run:
-```
-npm install underscore-template-loader
+
+```bash
+npm install underscore-template-strict-loader
 ```
 
 ### License
