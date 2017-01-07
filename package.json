@@ -29,11 +29,8 @@
   "homepage": "https://github.com/spyfu/underscore-template-strict-loader#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "expose-loader": "^0.7.1",
-    "memory-fs": "^0.4.1",
     "mocha": "^3.2.0",
-    "underscore": "^1.8.3",
-    "webpack": "^2.2.0-rc.3"
+    "underscore": "^1.8.3"
   },
   "dependencies": {
     "falafel": "^2.0.0",
