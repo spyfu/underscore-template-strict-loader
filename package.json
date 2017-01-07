@@ -4,7 +4,7 @@
   "description": "An Underscore.js template loader for webpack that works with strict mode by prefixing all variables referenced in the templates with a data object. It allows you to use existing templates without having to manually go through them and prefix each reference with data.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha --slow 5000"
   },
   "repository": {
     "type": "git",
@@ -28,7 +28,12 @@
   },
   "homepage": "https://github.com/spyfu/underscore-template-strict-loader#readme",
   "devDependencies": {
-    "underscore": "^1.8.3"
+    "chai": "^3.5.0",
+    "expose-loader": "^0.7.1",
+    "memory-fs": "^0.4.1",
+    "mocha": "^3.2.0",
+    "underscore": "^1.8.3",
+    "webpack": "^2.2.0-rc.3"
   },
   "dependencies": {
     "falafel": "^2.0.0",
