@@ -1,6 +1,9 @@
 underscore-template-strict-loader
 =========================
 
+[![CircleCI](https://img.shields.io/circleci/project/github/spyfu/underscore-template-strict-loader.svg)](https://circleci.com/gh/spyfu/underscore-template-strict-loader)
+[![License](https://img.shields.io/github/license/spyfu/underscore-template-strict-loader.svg)](https://github.com/spyfu/underscore-template-strict-loader/blob/master/LICENSE)
+
 An Underscore.js template loader for Webpack that works with strict mode. Underscore templates don't work with strict mode by default because they use the `with(data)` function to give you access to your data variables. This plugin works by prefixing each variable in your templates with `data.whatever` so `{{ name }}` becomes `{{ data.name }}`.
 
 ### Installation
@@ -26,7 +29,7 @@ module.exports = {
                     escape: /\{\{([\s\S]+?)\}\}/,
                     interpolate: /\{\!([\s\S]+?)\!\}/
                 },
-                
+
                 // Add this only if you want to prefix the template with
                 // an HTML comment with the path to the file for debugging.
                 addFilenameComment: true
