@@ -60,4 +60,15 @@ describe('underscore-template-strict-loader', () => {
         expect(output.indexOf('data.foo.bar')).to.not.equal(-1);
         expect(template({ foo: { bar: 'baz' } })).to.equal('baz');
     });
+
+    it('doesn\'t prefix function expression parameters', () => {
+        let output = load(`<% _.each(hello, function(world) { %>
+            <%= foo %>
+            <%= world %>
+        <% }) %>`);
+
+        expect(output.indexOf('data.hello')).not.to.equal(-1);
+        expect(output.indexOf('data.world')).to.equal(-1);
+        expect(output.indexOf('data.foo')).not.to.equal(-1);
+    });
 });
