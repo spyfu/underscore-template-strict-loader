@@ -1,6 +1,6 @@
 {
   "name": "underscore-template-strict-loader",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "An Underscore.js template loader for webpack that works with strict mode by prefixing all variables referenced in the templates with a data object. It allows you to use existing templates without having to manually go through them and prefix each reference with data.",
   "main": "index.js",
   "scripts": {
