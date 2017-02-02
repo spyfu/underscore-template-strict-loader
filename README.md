@@ -31,6 +31,10 @@ module.exports = {
                     interpolate: /\{\!([\s\S]+?)\!\}/
                 },
 
+                // use the globals option to define variables that
+                // should not be prefixed
+                globals: ['$', 'jQuery'],
+
                 // Add this only if you want to prefix the template with
                 // an HTML comment with the path to the file for debugging.
                 addFilenameComment: true

@@ -71,4 +71,14 @@ describe('underscore-template-strict-loader', () => {
         expect(output.indexOf('data.world')).to.equal(-1);
         expect(output.indexOf('data.foo')).not.to.equal(-1);
     });
+
+    it('doesn\'t prefix global variables', () => {
+        let output = load(`<%= someAwesomeGlobal %>`, {
+            query: {
+                globals: ['someAwesomeGlobal'],
+            },
+        });
+
+        expect(output.indexOf('data.someAwesomeGlobal')).to.equal(-1);
+    });
 });
