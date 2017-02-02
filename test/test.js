@@ -81,4 +81,12 @@ describe('underscore-template-strict-loader', () => {
 
         expect(output.indexOf('data.someAwesomeGlobal')).to.equal(-1);
     });
+
+    it('doesn\'t prefix built in javascript objects', () => {
+        let output = load('<%= Math.round(1.1) %>');
+        let template = getTemplateFunction(output);
+
+        expect(output.indexOf('data.Math')).to.equal(-1);
+        expect(template()).to.equal('1');
+    });
 });
