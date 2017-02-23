@@ -89,4 +89,18 @@ describe('underscore-template-strict-loader', () => {
         expect(output.indexOf('data.Math')).to.equal(-1);
         expect(template()).to.equal('1');
     });
+
+    it('can take a regex string in options', () => {
+        let output = load('{{ hello }}', {
+            query: {
+                templateSettings: {
+                    evaluate: '\\{\\[([\\s\\S]+?)\\]\\}',
+                    escape: '\\{\\{([\\s\\S]+?)\\}\\}',
+                    interpolate: '\\{\\!([\\s\\S]+?)\\!\\}',
+                },
+            },
+        });
+
+        expect(output.indexOf('data.hello')).not.to.equal(-1);
+    });
 });
