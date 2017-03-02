@@ -1,5 +1,6 @@
 'use strict';
 
+var _ = require("underscore");
 var expect = require('chai').expect;
 var loader = require('../lib/loader');
 
@@ -88,6 +89,25 @@ describe('underscore-template-strict-loader', () => {
 
         expect(output.indexOf('data.Math')).to.equal(-1);
         expect(template()).to.equal('1');
+    });
+
+    it('transpiles templates with babel', () => {
+        let output = load(`
+            <% foo.forEach(bar => { %>
+                <span><%= bar %></span>
+            <% }) %>
+        `, {
+            query: {
+                babel: { presets: ['es2015'] },
+            },
+        });
+
+        let template = getTemplateFunction(output);
+        let html = template({ foo: ['one', 'two', 'three'] });
+
+        expect(html.indexOf('<span>one</span>')).not.to.equal(-1);
+        expect(html.indexOf('<span>two</span>')).not.to.equal(-1);
+        expect(html.indexOf('<span>three</span>')).not.to.equal(-1);
     });
 
     it('can take a regex string in options', () => {
