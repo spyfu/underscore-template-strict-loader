@@ -73,6 +73,30 @@ describe('underscore-template-strict-loader', () => {
         expect(output.indexOf('data.foo')).not.to.equal(-1);
     });
 
+    it('doesn\'t prefix function declaration parameters', () => {
+        let output = load(`<% function hello(world) { %>
+            <%= foo %>
+            <%= world %>
+        <% } %>`);
+
+        expect(output.indexOf('data.hello')).to.equal(-1);
+        expect(output.indexOf('data.world')).to.equal(-1);
+        expect(output.indexOf('data.foo')).not.to.equal(-1);
+    });
+
+    it('doesn\'t prefix object literal properties', () => {
+        let output = load(`<% function test(options) {}; test({objectKey: objectValue}); %>`);
+
+        expect(output.indexOf('data.objectKey')).to.equal(-1);
+        expect(output.indexOf('data.objectValue')).not.to.equal(-1);
+    });
+
+    it('doesn\'t prefix catch clause parameters', () => {
+        let output = load(`<% try { JSON.stringify("bad json") } catch (e) {} %>`);
+
+        expect(output.indexOf('data.e')).to.equal(-1);
+    });
+
     it('doesn\'t prefix global variables', () => {
         let output = load(`<%= someAwesomeGlobal %>`, {
             query: {
