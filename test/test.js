@@ -132,7 +132,8 @@ describe('underscore-template-strict-loader', () => {
         expect(html.indexOf('<span>one</span>')).not.to.equal(-1);
         expect(html.indexOf('<span>two</span>')).not.to.equal(-1);
         expect(html.indexOf('<span>three</span>')).not.to.equal(-1);
-        done();
+
+        setTimeout(done, 1000);
     });
 
     it('can take a regex string in options', () => {
