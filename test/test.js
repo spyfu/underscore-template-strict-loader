@@ -115,7 +115,7 @@ describe('underscore-template-strict-loader', () => {
         expect(template()).to.equal('1');
     });
 
-    it('transpiles templates with babel', () => {
+    it('transpiles templates with babel', (done) => {
         let output = load(`
             <% foo.forEach(bar => { %>
                 <span><%= bar %></span>
@@ -132,6 +132,7 @@ describe('underscore-template-strict-loader', () => {
         expect(html.indexOf('<span>one</span>')).not.to.equal(-1);
         expect(html.indexOf('<span>two</span>')).not.to.equal(-1);
         expect(html.indexOf('<span>three</span>')).not.to.equal(-1);
+        done();
     });
 
     it('can take a regex string in options', () => {
