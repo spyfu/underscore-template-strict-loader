@@ -54,6 +54,18 @@ describe('underscore-template-strict-loader', () => {
         expect(template({ foo: 'bar' })).to.equal('bar');
     });
 
+    it('prefixes variables with custom data object name', () => {
+        let output = load('<%= foo %>', {
+            query: {
+                dataObjName: 'templateData'
+            },
+        });
+        let template = getTemplateFunction(output);
+
+        expect(output.indexOf('templateData.foo')).to.not.equal(-1);
+        expect(template({ foo: 'bar' })).to.equal('bar');
+    });
+
     it('correctly prefixes objects in the template', () => {
         let output = load('<%= foo.bar %>');
         let template = getTemplateFunction(output);
