@@ -30,6 +30,10 @@ module.exports = {
                     escape: /\{\{([\s\S]+?)\}\}/,
                     interpolate: /\{\!([\s\S]+?)\!\}/
                 },
+                
+                // use dataObjName option to define the name of the data object
+                // for templates. It's "data" by default.
+                dataObjName: 'templateData',
 
                 // use the globals option to define variables that
                 // should not be prefixed
